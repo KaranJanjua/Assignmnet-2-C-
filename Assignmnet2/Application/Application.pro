@@ -35,7 +35,9 @@ SOURCES += \
     asset.cpp \
     userpropertydefinition.cpp \
     userproperty.cpp \
-    userpropertyvalidator.cpp
+    userpropertyvalidator.cpp \
+    custodian.cpp \
+    commonentityfactory.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -48,7 +50,9 @@ HEADERS += \
     asset.h \
     userpropertydefinition.h \
     userproperty.h \
-    userpropertyvalidator.h
+    userpropertyvalidator.h \
+    custodian.h \
+    commonentityfactory.h
 
 FORMS += \
         mainwindow.ui
