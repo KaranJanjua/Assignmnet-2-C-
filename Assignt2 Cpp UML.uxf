@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>294</x>
+      <y>342</y>
+      <w>228</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>/AbstractAssetRegister/
+&lt;&lt;Singleton&gt;&gt;
+--
+#explicit AbstractRegister(QObject*)
++QString username()
++setUserName(Qstring)
++QString generateID()
++AbstarctEntityFactory getFactory()
++bool storeEntity(... entity)
++RegisteredEntity retrieveEntity(QString id)
++bool deleteEntity(QString id)
++QVector&lt;...&gt; allEntities([type])
++bool persist(QMap&lt;QString, QVariant&gt; options)
++bool restore(QMap&lt;QString, QVariant&gt; options)
++templat&lt;class T&gt; AbstarctAssetRegister* instance()
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>246</x>
+      <y>546</y>
+      <w>144</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>AssetRegister
+&lt;&lt;Singleton&gt;&gt;
+--
+friend class AbstractAssetRegister</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>312</x>
+      <y>480</y>
+      <w>18</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>396</x>
+      <y>546</y>
+      <w>144</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>MockAssetRegister
+&lt;&lt;Singleton&gt;&gt;
+--
+friend class AbstractAssetRegister</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>462</x>
+      <y>480</y>
+      <w>18</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>222</x>
+      <y>624</y>
+      <w>528</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>/AbstractEntityFactory/
+&lt;&lt;Abstract Factory (Abstarct Factory Role)&gt;&gt;
+--
+#AbstractEntityFactory()
+--
++Custodiam createCustodian( QString id, QMap &lt;QString, QVariant&gt; parameters = QMap{}, QObject *parent = nullptr)
++AssetType createAssetType( QString id, QMap &lt;QString, QVariant&gt; parameters = QMap{}, QObject *parent = nullptr)
++Asset createAsset(QString id, QMap &lt;QString, QVariant&gt; parameters = QMap{}, QObject *parent = nullptr)
++UserPropertyDefinition createPropertyDeination(QString id, QMap &lt;QString, QVariant&gt; parameters = QMap{}, QObject *parent = nullptr)
++UserProoerty createProperty(QString id, QMap &lt;QString, QVariant&gt; parameters = QMap{}, QObject *parent = nullptr)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>522</x>
+      <y>750</y>
+      <w>174</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>CommonEntityFactory
+&lt;&lt;Abstarct Factory (concrete Fcatory Role)&gt;&gt;
+--
++CommonEntityFactory()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>714</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>714</x>
+      <y>336</y>
+      <w>282</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>/RegisteredEntity/
+&lt;&lt;Abstarct Factory (Abstarct Product Role)&gt;&gt;
+--
++RegisterEntity( QString id, QObject *parent)
+--
+Data Members
+-QString id
+-QDateTime lastEditTime
+-QString lastEditedBy
+--
+Member Functions
++setid(QString id)
++QString getid()
++setEditTime(QDateTime LastEditTime)
++QdateTime getLastEditTime()
++setEditedBy(QString editedBy)
++QString getEditedBy()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>786</x>
+      <y>546</y>
+      <w>210</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Custodian
+&lt;&lt;Abstract Factory (Product Role)&gt;&gt;
+--
++Custodian( QString id, QObject *parent)
+--
+Data Members
+-QString name
+-TypedUserProperty &lt;QString&gt; department
+-TypedUserProperty &lt;QString&gt; phoneNumber
+--
+Members function
++setname(QString name)
++QString getName()
++setDepartment(??)
+also get methods for both
++setPhoneNumber(??)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>882</x>
+      <y>498</y>
+      <w>18</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1020</x>
+      <y>546</y>
+      <w>180</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>AssetType
+&lt;&lt;Type-Object(Type Role&gt;&gt;
+&lt;&lt;Abstact Factory (Product Role)&gt;&gt;
+--
+AssetType(QString id, QObject *parent)
+--
+Data Members
+-QString name
+-QVector&lt;Asset&gt; instances
+-propertyDefinations
+
+Member functions
++setName(QString name)
++QString getName()
++addInstance(Asset asset)
++Asset newInstance()
+--
+Slot
+void instaceDestroyed(Asset instance)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>486</y>
+      <w>60</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0;80.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1206</x>
+      <y>546</y>
+      <w>282</w>
+      <h>174</h>
+    </coordinates>
+    <panel_attributes>Asset
+&lt;&lt;Type-Object (Object Role&gt;&gt;
+&lt;&lt;Abstarct Factory (Product Role)&gt;&gt;
+--
+Asset(QString id, QObject *parent)
+--
+Data Members
+-AssetType type
+-QString serialNo
+-QString brand
+-QString model
+-TypedUserProperty&lt;double&gt; purchasePrice
+-QDateTime purchaseTime
+-QDateTime disposalDate
+-Custodian custodian
+--
+Slots
+void userPropertyChanged(QVariant newValue, QVarient oldValue)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>462</y>
+      <w>246</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;390.0;10.0;390.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1110</x>
+      <y>204</y>
+      <w>276</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>UserPropertyDefination
+&lt;&lt;Type-Object (Type Role)&gt;&gt;
+&lt;&lt;Strategy (Context Role)&gt;&gt;
+--
+UserpropertyDefination(QString name, DataType type, QObject *parent)
+--
+Data Member
+-QString name
+-DataType type
+-QVariant default
+-validators
+--
+Member Function
++UserProperty newProperty(QObject *parent = nullptr)
++std:: tuple&lt;bool, QString&gt; validate(UserProperty property)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>144</y>
+      <w>270</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>/userProperty/
+&lt;&lt;Type-Object(Object Role)&gt;&gt;
+--
++UserProperty(UserPropertyDefination defination, QObject *parent)
+--
+Data Member
+-UserPropertyDefination defination
+-QString name
+--
+Member Function
++QVariant value()
++void setValue(QVariant)
++bool valildate()
+--
+Signals
+valueChanged(QVariant neValue, QVariant oldValue)
+validationFailed(QString errorMessage)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>36</y>
+      <w>312</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>template&lt;class T&gt; TypedUserProperty
+&lt;&lt;TYpe-Object(Object Type, concrete subtype)&gt;&gt;
+--
+explicit TypedUserProperty(UserPropertyDefination defination, QObject *parent)
+--
+Data Members
+- T value</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>102</y>
+      <w>18</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1044</x>
+      <y>84</y>
+      <w>198</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>/UserPropertyValidator/
+&lt;&lt;Strategy ("Strategy" role)&gt;&gt;
+--
+UserPropertyValidator()
+--
+Member Function
++bool operator(UserProperty property)
++QString failuerMessage(UserProperty property)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1272</x>
+      <y>138</y>
+      <w>102</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>valueListValidators
+&lt;&lt;Concrete Strategy&gt;&gt;
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1194</x>
+      <y>36</y>
+      <w>102</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>minValueValidators
+&lt;&lt;Concrete Strategy&gt;&gt;
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1086</x>
+      <y>36</y>
+      <w>102</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>maxValueValidators
+&lt;&lt;Concrete Strategy&gt;&gt;
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1272</x>
+      <y>90</y>
+      <w>102</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>phoneNumberValidators
+&lt;&lt;Concrete Strategy&gt;&gt;
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1128</x>
+      <y>54</y>
+      <w>18</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1206</x>
+      <y>54</y>
+      <w>18</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1236</x>
+      <y>90</y>
+      <w>48</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1236</x>
+      <y>138</y>
+      <w>48</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>720</y>
+      <w>222</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;create&gt;&gt;</panel_attributes>
+    <additional_attributes>300.0;10.0;300.0;60.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>720</y>
+      <w>450</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;create&gt;&gt;</panel_attributes>
+    <additional_attributes>680.0;10.0;680.0;70.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>714</y>
+      <w>642</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;create&gt;&gt;</panel_attributes>
+    <additional_attributes>1000.0;10.0;1000.0;100.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1182</x>
+      <y>168</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>276</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Client</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>402</x>
+      <y>300</y>
+      <w>18</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>516</x>
+      <y>384</y>
+      <w>210</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+manage &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;330.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>984</x>
+      <y>252</y>
+      <w>138</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>834</x>
+      <y>300</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
