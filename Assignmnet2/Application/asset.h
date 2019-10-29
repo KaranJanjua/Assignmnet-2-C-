@@ -8,6 +8,8 @@ class Asset : public RegisteredEntity
 {
 public:
     Asset();
+    QString &id() const;
+
 };
 
 #endif // ASSET_H

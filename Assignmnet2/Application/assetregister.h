@@ -6,6 +6,9 @@ class AssetRegister : public AbstractAssetRegister
 {
 public:
     AssetRegister();
+
+
+
 };
 
 #endif // ASSETREGISTER_H
